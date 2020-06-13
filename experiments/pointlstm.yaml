@@ -1,0 +1,44 @@
+dataloader: shrec_dataloader.SHRECLoader
+phase: test
+num_epoch: 200
+work_dir: ./work_dir/baseline/
+batch_size: 8
+test_batch_size: 8
+num_worker: 10
+device: 1
+log_interval: 50
+eval_interval: 5
+save_interval: 5
+weights: ./work_dir/pointlstm/epoch200_model.pt
+
+framesize: &framesize 32
+pts_size: &frame_pts_size 128
+
+optimizer_args:
+  optimizer: Adam
+  base_lr: 0.0001
+  step: [ 100, 160, 180]
+  weight_decay: 0.005
+  start_epoch: 0
+  nesterov: False
+
+train_loader_args:
+  phase: 'train'
+  framerate:  *framesize
+
+#valid_loader_args:
+#  phase: 'valid'
+#  framerate: *framesize
+
+test_loader_args:
+  phase: 'test'
+  framerate: *framesize
+
+
+model: models.motion.Motion
+model_args:
+  pts_size: *frame_pts_size
+  num_classes: 28
+  knn: [16, 24, 48, 12]
+  offsets: False
+  topk: 16
