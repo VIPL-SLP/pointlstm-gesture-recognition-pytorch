@@ -1,11 +1,14 @@
-#PointLSTM
+# PointLSTM
+
 This repo holds the codes of paper:  [An Efficient PointLSTM for Point Clouds Based Gesture Recognition (CVPR 2020)](http://openaccess.thecvf.com/content_CVPR_2020/html/Min_An_Efficient_PointLSTM_for_Point_Clouds_Based_Gesture_Recognition_CVPR_2020_paper.html).
 
-##Abstract
+## Abstract
+
 Point clouds contain rich spatial information, which provides complementary cues for gesture recognition. In this paper, we formulate gesture recognition as an irregular sequence recognition problem and aim to capture long-term spatial correlations across point cloud sequences. A novel and effective PointLSTM is proposed to propagate information from past to future while preserving the spatial structure. The proposed PointLSTM combines state information from neighboring points in the past with current features to update the current states by a weight-shared LSTM layer. This method can be integrated into many other sequence learning approaches. In the task of gesture recognition, the proposed PointLSTM achieves state-of-the-art results on
 two challenging datasets (NVGesture and SHREC’17) and outperforms previous skeleton-based methods. To show its advantages in generalization, we evaluate our method on MSR Action3D dataset, and it produces competitive results with previous skeleton-based methods.
 
-##Prerequisites
+## Prerequisites
+
 These code is implemented in Pytorch (>1.0). Thus please install Pytorch first.
 ##Usage
 ### Get the code
