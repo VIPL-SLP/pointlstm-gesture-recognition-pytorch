@@ -10,8 +10,10 @@ two challenging datasets (NVGesture and SHREC’17) and outperforms previous ske
 ## Prerequisites
 
 These code is implemented in Pytorch (>1.0). Thus please install Pytorch first.
-##Usage
+## Usage
+
 ### Get the code
+
 Clone this repo with git, please use:
 ```git
 git clone https://github.com/Blueprintf/pointlstm_gesture_recognition_pytorch.git
