@@ -9,7 +9,7 @@ device: 1
 log_interval: 50
 eval_interval: 5
 save_interval: 5
-weights: ./work_dir/pointlstm/epoch200_model.pt
+#weights: ./work_dir/pointlstm/epoch200_model.pt
 
 framesize: &framesize 32
 pts_size: &frame_pts_size 128
