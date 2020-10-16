@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 from skimage import measure
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
 
 def key_frame_sampling(key_cnt, frame_size):
@@ -14,6 +15,15 @@ def uvd2xyz_sherc(pts, paras=(463.889, 463.889, 320.00000, 240.00000)):
     ret_pts = np.zeros_like(pts)
     ret_pts[:, 0] = (pts[:, 0] - paras[3]) * pts[:, 2] / paras[0]
     ret_pts[:, 1] = (pts[:, 1] - paras[2]) * pts[:, 2] / paras[1]
+    ret_pts[:, 2] = pts[:, 2]
+    ret_pts[:, 3] = pts[:, 3]
+    return ret_pts
+
+
+def uvd2xyz_nvidia(pts, paras=(224.50200, 230.49400, 160.00000, 120.00000)):
+    ret_pts = np.zeros_like(pts)
+    ret_pts[:, 0] = (pts[:, 0] - paras[3]) * (255 - pts[:, 2]) / paras[0]
+    ret_pts[:, 1] = (pts[:, 1] - paras[2]) * (255 - pts[:, 2]) / paras[1]
     ret_pts[:, 2] = pts[:, 2]
     ret_pts[:, 3] = pts[:, 3]
     return ret_pts

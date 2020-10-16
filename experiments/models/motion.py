@@ -47,7 +47,7 @@ class Motion(nn.Module):
         ret_array1 = self.group.group_points(distance_dim=[0, 1, 2], array1=inputs, array2=inputs, knn=self.knn[0],
                                              dim=3)
         # B * 4 * 32 * 128 * 16
-        ret_array1 = ret_array1.view(batchsize, in_dims, timestep * pts_num, -1)
+        ret_array1 = ret_array1.contiguous().view(batchsize, in_dims, timestep * pts_num, -1)
         # B * 4 * 4096 * 16
         fea1 = self.pool1(self.stage1(ret_array1)).view(batchsize, -1, timestep, pts_num)
         # B * 64 * 32 * 128
